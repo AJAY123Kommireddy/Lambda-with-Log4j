@@ -1,6 +1,6 @@
 package com.java8.service;
 
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
 
 import com.java8.daolayer.DaoLayer;
@@ -13,9 +13,17 @@ public class ServiceLayer {
 		
 		    List<CustomerEntity> customers = new DaoLayer().getCustomerDetails();
 		    
-		     Collections.sort(customers,(o1,o2) -> (o2.getName().compareTo(o1.getName())));
+		     Collections.sort(customers,new Mycomparator());
 		     
 		     return customers;
 	}
 	
+	class Mycomparator implements Comparator<CustomerEntity>{
+		
+		public int compare(Object o1, Object o2){
+		
+			return (o2.getName().compareTo(o1.getName());
+		}
+		
+	}
 }
